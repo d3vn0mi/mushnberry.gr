@@ -1,0 +1,48 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const alternateLang = lang === 'el' ? 'en' : 'el';
+const alternatePath = lang === 'el'
+  ? `/en${Astro.url.pathname}`
+  : Astro.url.pathname.replace(/^\/en/, '') || '/';
+const alternateURL = new URL(alternatePath, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Mushnberry</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="alternate" hreflang={lang} href={canonicalURL.href} />
+    <link rel="alternate" hreflang={alternateLang} href={alternateURL.href} />
+    <meta property="og:title" content={`${title} | Mushnberry`} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Mushnberry" />
+  </head>
+  <body>
+    <Header lang={lang} currentPath={Astro.url.pathname} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

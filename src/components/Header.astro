@@ -1,0 +1,194 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import { getNavLinks } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+export interface Props {
+  lang: Lang;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const navLinks = getNavLinks(lang);
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={navLinks[0].href} class="logo">
+      <span class="logo-icon">M</span>
+      <span class="logo-text">Mushnberry</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="menu-btn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && link.href !== '/en/' && currentPath.startsWith(link.href)) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <LanguagePicker lang={lang} currentPath={currentPath} />
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .logo:hover {
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius);
+    transition: background-color 0.2s;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    color: var(--color-accent);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: flex;
+    }
+
+    .nav {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background-color: var(--color-dark);
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s, opacity 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-toggle:checked ~ .nav {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-toggle:checked ~ .menu-btn span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle:checked ~ .menu-btn span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .menu-btn span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 0.5rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>

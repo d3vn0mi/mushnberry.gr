@@ -1,0 +1,64 @@
+---
+import { languages, defaultLang } from '../i18n/ui';
+import type { Lang } from '../i18n/utils';
+
+export interface Props {
+  lang: Lang;
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+
+function getAlternatePath(targetLang: string): string {
+  if (lang === defaultLang) {
+    // Currently on default (el) pages at root; switch to /en/...
+    if (targetLang === defaultLang) return currentPath;
+    return `/${targetLang}${currentPath}`;
+  } else {
+    // Currently on /en/...; switch to root
+    if (targetLang === defaultLang) {
+      return currentPath.replace(`/${lang}`, '') || '/';
+    }
+    return currentPath;
+  }
+}
+---
+
+<nav class="lang-picker" aria-label="Language">
+  {Object.entries(languages).map(([code, name]) => (
+    <a
+      href={getAlternatePath(code)}
+      class:list={['lang-link', { active: code === lang }]}
+      aria-current={code === lang ? 'page' : undefined}
+    >
+      {code.toUpperCase()}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .lang-picker {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .lang-link {
+    padding: 0.35rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color 0.2s;
+  }
+
+  .lang-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+  }
+
+  .lang-link.active {
+    background-color: var(--color-primary);
+    color: white;
+  }
+</style>
