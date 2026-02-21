@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('el');
+---
+
+<BaseLayout title={t('nav.home')} description={t('home.hero.subtitle')}>
+  <Hero title={t('home.hero.title')} subtitle={t('home.hero.subtitle')} variant="primary">
+    <a href="/products" class="btn btn-accent">{t('home.hero.cta')}</a>
+  </Hero>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <Card
+          title={t('home.cards.mushrooms.title')}
+          description={t('home.cards.mushrooms.desc')}
+          icon="🍄"
+          href="/products"
+        />
+        <Card
+          title={t('home.cards.strawberries.title')}
+          description={t('home.cards.strawberries.desc')}
+          icon="🍓"
+          href="/products"
+        />
+        <Card
+          title={t('home.cards.ai.title')}
+          description={t('home.cards.ai.desc')}
+          icon="🤖"
+          href="/technology"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container text-center">
+      <h2>{t('home.why.title')}</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>{t('home.why.fresh')}</h3>
+          <p>{t('home.why.fresh.desc')}</p>
+        </div>
+        <div class="why-item">
+          <h3>{t('home.why.sustainable')}</h3>
+          <p>{t('home.why.sustainable.desc')}</p>
+        </div>
+        <div class="why-item">
+          <h3>{t('home.why.innovation')}</h3>
+          <p>{t('home.why.innovation.desc')}</p>
+        </div>
+      </div>
+      <a href="/contact" class="btn btn-outline">{t('common.contactUs')}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .why-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .why-item h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .why-item p {
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+</style>

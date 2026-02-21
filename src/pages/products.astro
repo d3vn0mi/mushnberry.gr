@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('el');
+---
+
+<BaseLayout title={t('nav.products')} description={t('products.hero.subtitle')}>
+  <Hero title={t('products.hero.title')} subtitle={t('products.hero.subtitle')} variant="primary" />
+
+  <section class="section">
+    <div class="container">
+      <div class="product-section">
+        <h2>🍄 {t('products.mushrooms.title')}</h2>
+        <p class="product-intro">{t('products.mushrooms.desc')}</p>
+        <div class="grid-3">
+          <Card
+            title={t('products.mushrooms.oyster')}
+            description={t('products.mushrooms.oyster.desc')}
+          />
+          <Card
+            title={t('products.mushrooms.shiitake')}
+            description={t('products.mushrooms.shiitake.desc')}
+          />
+          <Card
+            title={t('products.mushrooms.lionsmane')}
+            description={t('products.mushrooms.lionsmane.desc')}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="product-section">
+        <h2>🍓 {t('products.strawberries.title')}</h2>
+        <p class="product-intro">{t('products.strawberries.desc')}</p>
+        <div class="grid-2 strawberry-grid">
+          <Card
+            title={t('products.strawberries.sweet')}
+            description={t('products.strawberries.sweet.desc')}
+          />
+          <Card
+            title={t('products.strawberries.premium')}
+            description={t('products.strawberries.premium.desc')}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-primary">
+    <div class="container text-center">
+      <h2>{t('products.quality.title')}</h2>
+      <p class="quality-text">{t('products.quality.desc')}</p>
+      <a href="/contact" class="btn btn-accent">{t('common.contactUs')}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .product-section h2 {
+    margin-bottom: 1rem;
+    color: var(--color-secondary-dark);
+  }
+
+  .section-dark .product-section h2 {
+    color: var(--color-accent);
+  }
+
+  .product-intro {
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #444;
+  }
+
+  .section-dark .product-intro {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .strawberry-grid {
+    max-width: 800px;
+  }
+
+  .quality-text {
+    max-width: 700px;
+    margin: 1rem auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.95;
+  }
+</style>
