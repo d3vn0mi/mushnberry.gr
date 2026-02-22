@@ -16,7 +16,13 @@ const navLinks = getNavLinks(lang);
   <div class="container footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
-        <span class="logo-icon">M</span>
+        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 26 Q24 4 42 26" stroke="#C2185B" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M11 24 Q24 10 37 24" stroke="#5D4037" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M10 42 L10 22 L24 34 L38 22 L38 42" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M38 16 C42 10, 47 13, 44 18" fill="#2E7D32"/>
+          <circle cx="42" cy="20" r="2" fill="#C2185B"/>
+        </svg>
         <span class="logo-text">Mushnberry</span>
       </div>
       <p class="footer-tagline">{t('footer.tagline')}</p>
@@ -77,17 +83,10 @@ const navLinks = getNavLinks(lang);
     margin-bottom: 0.5rem;
   }
 
-  .logo-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .logo-mark {
     width: 32px;
     height: 32px;
-    background-color: var(--color-primary);
-    color: white;
-    border-radius: 50%;
-    font-weight: 800;
-    font-size: 1rem;
+    flex-shrink: 0;
   }
 
   .footer-tagline {

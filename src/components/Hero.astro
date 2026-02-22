@@ -113,23 +113,38 @@ const bgClass = {
     max-width: 800px;
   }
 
+  .hero-title,
+  .hero-subtitle,
+  .hero-actions {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
   .hero-title {
-    animation: hero-fade-up 0.8s ease both;
-    animation-delay: 0.1s;
     margin-bottom: 1rem;
+    transition-delay: 0.1s;
   }
 
   .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    opacity: 0.9;
     line-height: 1.6;
     margin-bottom: 2rem;
-    animation: hero-fade-up 0.8s ease both;
-    animation-delay: 0.3s;
+    transition-delay: 0.3s;
   }
 
   .hero-actions {
-    animation: hero-fade-up 0.8s ease both;
-    animation-delay: 0.5s;
+    transition-delay: 0.5s;
+  }
+
+  :global(.hero-visible) .hero-title,
+  :global(.hero-visible) .hero-subtitle,
+  :global(.hero-visible) .hero-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(.hero-visible) .hero-subtitle {
+    opacity: 0.9;
   }
 </style>

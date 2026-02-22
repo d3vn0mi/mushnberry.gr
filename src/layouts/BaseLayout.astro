@@ -73,8 +73,20 @@ const alternateURL = new URL(alternatePath, Astro.site);
         revealElements.forEach((el) => observer.observe(el));
       }
 
+      function initHeroAnimation() {
+        const hero = document.querySelector('.hero');
+        if (!hero || hero.classList.contains('hero-visible')) return;
+        requestAnimationFrame(() => {
+          hero.classList.add('hero-visible');
+        });
+      }
+
       initRevealObserver();
-      document.addEventListener('astro:after-swap', initRevealObserver);
+      initHeroAnimation();
+      document.addEventListener('astro:after-swap', () => {
+        initRevealObserver();
+        initHeroAnimation();
+      });
     </script>
   </body>
 </html>
