@@ -1,0 +1,273 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/utils';
+
+export interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="contact-form-container" id="contact-form-container">
+  <form class="contact-form" id="contact-form" novalidate>
+    <input type="hidden" name="_subject" value="New contact from mushnberry.gr" />
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+    <div class="form-group">
+      <label for="cf-name">{t('contact.form.name')}</label>
+      <input type="text" id="cf-name" name="name" required minlength="2" autocomplete="name" />
+      <span class="field-error" id="name-error">{t('contact.form.nameError')}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="cf-email">{t('contact.form.email')}</label>
+      <input type="email" id="cf-email" name="email" required autocomplete="email" />
+      <span class="field-error" id="email-error">{t('contact.form.emailError')}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="cf-message">{t('contact.form.message')}</label>
+      <textarea id="cf-message" name="message" rows="6" required minlength="10"></textarea>
+      <span class="field-error" id="message-error">{t('contact.form.messageError')}</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+      <span class="btn-text">{t('contact.form.submit')}</span>
+      <span class="btn-spinner"></span>
+    </button>
+  </form>
+
+  <div class="form-success" id="form-success">
+    <div class="success-checkmark">&#10003;</div>
+    <h3>{t('contact.form.success')}</h3>
+    <p>{t('contact.form.successMessage')}</p>
+  </div>
+
+  <div class="form-error-message" id="form-error-message">
+    <p>{t('contact.form.errorMessage')}</p>
+    <button class="btn btn-primary" id="retry-btn">{t('contact.form.retry')}</button>
+  </div>
+</div>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-secondary-dark);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: white;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.1);
+  }
+
+  .form-group input.valid,
+  .form-group textarea.valid {
+    border-color: var(--color-green);
+  }
+
+  .form-group input.invalid,
+  .form-group textarea.invalid {
+    border-color: #d32f2f;
+  }
+
+  .field-error {
+    font-size: 0.85rem;
+    color: #d32f2f;
+    display: none;
+  }
+
+  .form-group input.invalid ~ .field-error,
+  .form-group textarea.invalid ~ .field-error {
+    display: block;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .submit-btn {
+    position: relative;
+    min-width: 160px;
+  }
+
+  .btn-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -10px;
+  }
+
+  .submit-btn.loading .btn-spinner {
+    display: block;
+  }
+
+  .submit-btn.loading .btn-text {
+    opacity: 0.7;
+  }
+
+  .form-success,
+  .form-error-message {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .form-success.visible,
+  .form-error-message.visible {
+    display: block;
+    animation: hero-fade-up 0.5s ease both;
+  }
+
+  .success-checkmark {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-green);
+    color: white;
+    font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .form-success h3 {
+    color: var(--color-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-error-message {
+    background: #fff3f3;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-error-message p {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const submitBtn = document.getElementById('submit-btn');
+    const formSuccess = document.getElementById('form-success');
+    const formError = document.getElementById('form-error-message');
+    const retryBtn = document.getElementById('retry-btn');
+
+    if (!form || !submitBtn || !formSuccess || !formError) return;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function validateField(input: HTMLInputElement | HTMLTextAreaElement): boolean {
+      const value = input.value.trim();
+      let isValid = true;
+
+      if (input.type === 'email') {
+        isValid = emailRegex.test(value);
+      } else if (input.name === 'name') {
+        isValid = value.length >= 2;
+      } else if (input.name === 'message') {
+        isValid = value.length >= 10;
+      }
+
+      input.classList.toggle('valid', isValid && value.length > 0);
+      input.classList.toggle('invalid', !isValid && value.length > 0);
+      return isValid;
+    }
+
+    form.querySelectorAll('input:not([type="hidden"]), textarea').forEach((input) => {
+      input.addEventListener('blur', () => validateField(input as HTMLInputElement));
+      input.addEventListener('input', () => {
+        const el = input as HTMLInputElement;
+        if (el.classList.contains('invalid')) validateField(el);
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const inputs = form.querySelectorAll('input:not([type="hidden"]):not([name="_honey"]), textarea');
+      let allValid = true;
+      inputs.forEach((input) => {
+        if (!validateField(input as HTMLInputElement)) allValid = false;
+      });
+
+      if (!allValid) return;
+
+      submitBtn.classList.add('loading');
+      (submitBtn as HTMLButtonElement).disabled = true;
+
+      const formData = new FormData(form);
+      const data: Record<string, string> = {};
+      formData.forEach((val, key) => { data[key] = val as string; });
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/info@mushnberry.gr', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          formSuccess.classList.add('visible');
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch {
+        form.style.display = 'none';
+        formError.classList.add('visible');
+      } finally {
+        submitBtn.classList.remove('loading');
+        (submitBtn as HTMLButtonElement).disabled = false;
+      }
+    });
+
+    retryBtn?.addEventListener('click', () => {
+      formError.classList.remove('visible');
+      form.style.display = 'flex';
+    });
+  }
+
+  initContactForm();
+  document.addEventListener('astro:after-swap', initContactForm);
+</script>

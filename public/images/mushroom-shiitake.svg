@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#3E2723"/>
+    </linearGradient>
+    <radialGradient id="light" cx="45%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#F9A825" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="cap" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#6D4C41"/>
+      <stop offset="60%" stop-color="#4E342E"/>
+      <stop offset="100%" stop-color="#3E2723"/>
+    </radialGradient>
+    <radialGradient id="gill" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EFEBE9"/>
+      <stop offset="100%" stop-color="#D7CCC8"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#light)"/>
+  <!-- Main shiitake cap -->
+  <g transform="translate(400 260)">
+    <!-- Cap shadow -->
+    <ellipse cx="5" cy="15" rx="145" ry="65" fill="#1A1A2E" opacity="0.3"/>
+    <!-- Cap body -->
+    <ellipse cx="0" cy="0" rx="140" ry="60" fill="url(#cap)"/>
+    <!-- Cap surface cracks -->
+    <path d="M-60 -15 Q-30 -25 0 -18 Q30 -10 70 -20" stroke="#8D6E63" stroke-width="1" fill="none" opacity="0.3"/>
+    <path d="M-40 5 Q0 -5 40 2" stroke="#8D6E63" stroke-width="0.8" fill="none" opacity="0.25"/>
+    <!-- Cap highlights -->
+    <ellipse cx="-30" cy="-20" rx="35" ry="12" fill="#8D6E63" opacity="0.2"/>
+    <!-- Gill area visible at edge -->
+    <path d="M-120 15 Q-60 40 0 45 Q60 40 120 15" fill="url(#gill)" opacity="0.35"/>
+    <!-- Gill lines -->
+    <g stroke="#BCAAA4" stroke-width="0.6" opacity="0.2">
+      <line x1="-80" y1="25" x2="-10" y2="42"/>
+      <line x1="-60" y1="28" x2="0" y2="43"/>
+      <line x1="-40" y1="32" x2="10" y2="44"/>
+      <line x1="20" y1="43" x2="60" y2="30"/>
+      <line x1="30" y1="43" x2="80" y2="26"/>
+      <line x1="40" y1="42" x2="100" y2="22"/>
+    </g>
+    <!-- Stem -->
+    <rect x="-18" y="40" width="36" height="100" rx="14" fill="#D7CCC8" opacity="0.45"/>
+    <rect x="-12" y="45" width="24" height="90" rx="10" fill="#EFEBE9" opacity="0.2"/>
+  </g>
+  <!-- Small background shiitake -->
+  <g transform="translate(600 350) scale(0.4)" opacity="0.3">
+    <ellipse cx="0" cy="0" rx="130" ry="55" fill="#4E342E"/>
+    <rect x="-14" y="35" width="28" height="70" rx="10" fill="#D7CCC8" opacity="0.4"/>
+  </g>
+  <!-- Ambient dots -->
+  <circle cx="150" cy="150" r="2" fill="#F9A825" opacity="0.2"/>
+  <circle cx="650" cy="180" r="1.5" fill="#F9A825" opacity="0.15"/>
+</svg>

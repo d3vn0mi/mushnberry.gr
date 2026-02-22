@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="50%" stop-color="#2E7D32" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5D4037"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2E7D32" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F9A825" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <!-- Greenhouse structure -->
+  <path d="M300 750 L300 350 Q960 100 1620 350 L1620 750Z" fill="none" stroke="#F9A825" stroke-width="2" opacity="0.2"/>
+  <path d="M300 750 L300 350 Q960 100 1620 350 L1620 750Z" fill="url(#glass)"/>
+  <!-- Greenhouse ribs -->
+  <path d="M560 750 L560 320 Q960 160 960 200" stroke="#F9A825" stroke-width="1" opacity="0.12" fill="none"/>
+  <path d="M820 750 L820 260 Q960 180 960 200" stroke="#F9A825" stroke-width="1" opacity="0.12" fill="none"/>
+  <path d="M1100 750 L1100 260" stroke="#F9A825" stroke-width="1" opacity="0.12" fill="none"/>
+  <path d="M1360 750 L1360 320" stroke="#F9A825" stroke-width="1" opacity="0.12" fill="none"/>
+  <!-- Plant rows -->
+  <g opacity="0.4">
+    <circle cx="450" cy="680" r="20" fill="#2E7D32"/><circle cx="520" cy="680" r="18" fill="#388E3C"/>
+    <circle cx="590" cy="680" r="22" fill="#2E7D32"/><circle cx="660" cy="680" r="17" fill="#388E3C"/>
+    <circle cx="730" cy="680" r="20" fill="#2E7D32"/><circle cx="800" cy="680" r="19" fill="#388E3C"/>
+    <circle cx="870" cy="680" r="21" fill="#2E7D32"/><circle cx="940" cy="680" r="18" fill="#388E3C"/>
+    <circle cx="1010" cy="680" r="20" fill="#2E7D32"/><circle cx="1080" cy="680" r="22" fill="#388E3C"/>
+    <circle cx="1150" cy="680" r="18" fill="#2E7D32"/><circle cx="1220" cy="680" r="20" fill="#388E3C"/>
+    <circle cx="1290" cy="680" r="19" fill="#2E7D32"/><circle cx="1360" cy="680" r="21" fill="#388E3C"/>
+    <circle cx="1430" cy="680" r="18" fill="#2E7D32"/><circle cx="1500" cy="680" r="20" fill="#388E3C"/>
+  </g>
+  <!-- Ground -->
+  <rect x="250" y="750" width="1420" height="8" rx="4" fill="#5D4037" opacity="0.4"/>
+  <!-- Ambient particles -->
+  <circle cx="600" cy="450" r="3" fill="#F9A825" opacity="0.2"/>
+  <circle cx="1200" cy="400" r="2" fill="#F9A825" opacity="0.25"/>
+  <circle cx="900" cy="350" r="2" fill="#2E7D32" opacity="0.3"/>
+  <circle cx="1400" cy="500" r="3" fill="#F9A825" opacity="0.15"/>
+  <!-- Bottom gradient overlay -->
+  <rect x="0" y="850" width="1920" height="230" fill="#1A1A2E" opacity="0.6"/>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#263238"/>
+    </linearGradient>
+    <linearGradient id="shelf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#546E7A"/>
+      <stop offset="100%" stop-color="#37474F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Room perspective lines -->
+  <line x1="0" y1="0" x2="150" y2="150" stroke="#455A64" stroke-width="0.5" opacity="0.2"/>
+  <line x1="800" y1="0" x2="650" y2="150" stroke="#455A64" stroke-width="0.5" opacity="0.2"/>
+  <!-- Back wall -->
+  <rect x="150" y="150" width="500" height="350" fill="#263238" opacity="0.5"/>
+  <!-- Shelf rows -->
+  <g>
+    <!-- Row 1 -->
+    <rect x="180" y="200" width="440" height="6" rx="2" fill="url(#shelf)" opacity="0.5"/>
+    <!-- Plants on row 1 -->
+    <g fill="#2E7D32" opacity="0.5">
+      <circle cx="220" cy="192" r="8"/><circle cx="250" cy="190" r="9"/>
+      <circle cx="280" cy="192" r="8"/><circle cx="310" cy="191" r="7"/>
+      <circle cx="340" cy="190" r="9"/><circle cx="370" cy="192" r="8"/>
+      <circle cx="400" cy="191" r="8"/><circle cx="430" cy="190" r="9"/>
+      <circle cx="460" cy="192" r="7"/><circle cx="490" cy="191" r="8"/>
+      <circle cx="520" cy="190" r="9"/><circle cx="550" cy="192" r="8"/>
+      <circle cx="580" cy="191" r="7"/>
+    </g>
+    <!-- LED strip -->
+    <rect x="185" y="208" width="430" height="2" fill="#F9A825" opacity="0.15"/>
+
+    <!-- Row 2 -->
+    <rect x="180" y="290" width="440" height="6" rx="2" fill="url(#shelf)" opacity="0.5"/>
+    <g fill="#388E3C" opacity="0.45">
+      <circle cx="220" cy="282" r="8"/><circle cx="250" cy="280" r="9"/>
+      <circle cx="280" cy="282" r="7"/><circle cx="310" cy="281" r="8"/>
+      <circle cx="340" cy="280" r="9"/><circle cx="370" cy="282" r="8"/>
+      <circle cx="400" cy="281" r="7"/><circle cx="430" cy="280" r="9"/>
+      <circle cx="460" cy="282" r="8"/><circle cx="490" cy="281" r="8"/>
+      <circle cx="520" cy="280" r="7"/><circle cx="550" cy="282" r="9"/>
+      <circle cx="580" cy="281" r="8"/>
+    </g>
+    <rect x="185" y="298" width="430" height="2" fill="#F9A825" opacity="0.15"/>
+
+    <!-- Row 3 -->
+    <rect x="180" y="380" width="440" height="6" rx="2" fill="url(#shelf)" opacity="0.5"/>
+    <g fill="#2E7D32" opacity="0.4">
+      <circle cx="220" cy="372" r="9"/><circle cx="250" cy="370" r="8"/>
+      <circle cx="280" cy="372" r="9"/><circle cx="310" cy="371" r="7"/>
+      <circle cx="340" cy="370" r="8"/><circle cx="370" cy="372" r="9"/>
+      <circle cx="400" cy="371" r="8"/><circle cx="430" cy="370" r="7"/>
+      <circle cx="460" cy="372" r="9"/><circle cx="490" cy="371" r="8"/>
+      <circle cx="520" cy="370" r="9"/><circle cx="550" cy="372" r="7"/>
+      <circle cx="580" cy="371" r="8"/>
+    </g>
+    <rect x="185" y="388" width="430" height="2" fill="#F9A825" opacity="0.15"/>
+
+    <!-- Row 4 -->
+    <rect x="180" y="460" width="440" height="6" rx="2" fill="url(#shelf)" opacity="0.5"/>
+    <g fill="#388E3C" opacity="0.35">
+      <circle cx="220" cy="452" r="8"/><circle cx="250" cy="450" r="9"/>
+      <circle cx="280" cy="452" r="8"/><circle cx="310" cy="451" r="9"/>
+      <circle cx="340" cy="450" r="7"/><circle cx="370" cy="452" r="8"/>
+      <circle cx="400" cy="451" r="9"/><circle cx="430" cy="450" r="8"/>
+      <circle cx="460" cy="452" r="7"/><circle cx="490" cy="451" r="9"/>
+      <circle cx="520" cy="450" r="8"/><circle cx="550" cy="452" r="9"/>
+      <circle cx="580" cy="451" r="7"/>
+    </g>
+    <rect x="185" y="468" width="430" height="2" fill="#F9A825" opacity="0.15"/>
+  </g>
+  <!-- Floor -->
+  <rect x="100" y="500" width="600" height="4" fill="#455A64" opacity="0.3"/>
+  <!-- Ambient light glow from ceiling -->
+  <rect x="250" y="155" width="300" height="3" fill="#F9A825" opacity="0.1"/>
+</svg>

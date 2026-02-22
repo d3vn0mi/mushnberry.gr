@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="60%" stop-color="#1A2A3E"/>
+      <stop offset="100%" stop-color="#0D4F4F"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#F9A825" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#core)"/>
+  <!-- Circuit board traces -->
+  <g stroke="#F9A825" stroke-width="1.5" fill="none" opacity="0.15">
+    <path d="M100 540 H400 V340 H700"/>
+    <path d="M700 340 H960 V200 H1200"/>
+    <path d="M960 540 H1300 V700 H1600"/>
+    <path d="M960 540 V340"/>
+    <path d="M1600 700 H1800 V400"/>
+    <path d="M400 540 V740 H700 V600"/>
+    <path d="M1200 200 V400 H1400"/>
+  </g>
+  <!-- Circuit nodes -->
+  <g fill="#F9A825">
+    <circle cx="400" cy="540" r="5" opacity="0.35"/>
+    <circle cx="700" cy="340" r="5" opacity="0.35"/>
+    <circle cx="960" cy="540" r="8" opacity="0.4"/>
+    <circle cx="960" cy="340" r="5" opacity="0.35"/>
+    <circle cx="1200" cy="200" r="5" opacity="0.35"/>
+    <circle cx="1300" cy="700" r="5" opacity="0.35"/>
+    <circle cx="1600" cy="700" r="5" opacity="0.35"/>
+    <circle cx="400" cy="740" r="4" opacity="0.3"/>
+    <circle cx="700" cy="600" r="4" opacity="0.3"/>
+    <circle cx="1400" cy="400" r="4" opacity="0.3"/>
+  </g>
+  <!-- Data flow particles -->
+  <circle cx="550" cy="540" r="3" fill="#C2185B" opacity="0.5"/>
+  <circle cx="830" cy="340" r="3" fill="#2E7D32" opacity="0.5"/>
+  <circle cx="1130" cy="700" r="3" fill="#C2185B" opacity="0.5"/>
+  <circle cx="960" cy="440" r="3" fill="#F9A825" opacity="0.4"/>
+  <!-- Central processor shape -->
+  <rect x="920" y="500" width="80" height="80" rx="8" fill="none" stroke="#F9A825" stroke-width="2" opacity="0.25"/>
+  <rect x="935" y="515" width="50" height="50" rx="4" fill="#F9A825" opacity="0.08"/>
+  <!-- Hexagonal grid background -->
+  <g stroke="#F9A825" stroke-width="0.5" fill="none" opacity="0.06">
+    <polygon points="200,100 240,80 280,100 280,140 240,160 200,140"/>
+    <polygon points="280,100 320,80 360,100 360,140 320,160 280,140"/>
+    <polygon points="1560,800 1600,780 1640,800 1640,840 1600,860 1560,840"/>
+    <polygon points="1640,800 1680,780 1720,800 1720,840 1680,860 1640,840"/>
+    <polygon points="1560,860 1600,840 1640,860 1640,900 1600,920 1560,900"/>
+  </g>
+  <rect x="0" y="900" width="1920" height="180" fill="#1A1A2E" opacity="0.5"/>
+</svg>

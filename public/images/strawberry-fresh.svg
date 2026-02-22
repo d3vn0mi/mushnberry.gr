@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="60%" stop-color="#3E2723"/>
+      <stop offset="100%" stop-color="#5D4037"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#C2185B" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="berry" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E53935"/>
+      <stop offset="100%" stop-color="#B71C1C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <!-- Basket suggestion - woven lines -->
+  <g stroke="#8D6E63" stroke-width="2" opacity="0.2">
+    <path d="M200 420 Q400 480 600 420" fill="none"/>
+    <path d="M180 450 Q400 510 620 450" fill="none"/>
+    <path d="M170 480 Q400 540 630 480" fill="none"/>
+    <line x1="280" y1="400" x2="260" y2="500"/>
+    <line x1="400" y1="410" x2="400" y2="520"/>
+    <line x1="520" y1="400" x2="540" y2="500"/>
+  </g>
+  <!-- Strawberry cluster -->
+  <!-- Berry 1 - front center -->
+  <g transform="translate(380 310)">
+    <path d="M0 -40 Q35 -30 40 30 Q30 70 0 80 Q-30 70 -40 30 Q-35 -30 0 -40Z" fill="url(#berry)" opacity="0.7"/>
+    <circle cx="-12" cy="0" r="2" fill="#F9A825" opacity="0.3"/>
+    <circle cx="10" cy="10" r="2" fill="#F9A825" opacity="0.3"/>
+    <circle cx="-5" cy="30" r="2" fill="#F9A825" opacity="0.3"/>
+    <circle cx="15" cy="40" r="2" fill="#F9A825" opacity="0.25"/>
+    <path d="M-15 -40 L0 -52 L15 -40 L5 -38 L-5 -38Z" fill="#2E7D32" opacity="0.6"/>
+  </g>
+  <!-- Berry 2 - left -->
+  <g transform="translate(290 330) scale(0.85)">
+    <path d="M0 -40 Q35 -30 40 30 Q30 70 0 80 Q-30 70 -40 30 Q-35 -30 0 -40Z" fill="#D32F2F" opacity="0.6"/>
+    <circle cx="-10" cy="5" r="2" fill="#F9A825" opacity="0.25"/>
+    <circle cx="8" cy="20" r="2" fill="#F9A825" opacity="0.25"/>
+    <path d="M-12 -40 L0 -50 L12 -40" fill="#2E7D32" opacity="0.5"/>
+  </g>
+  <!-- Berry 3 - right -->
+  <g transform="translate(480 320) scale(0.9)">
+    <path d="M0 -40 Q35 -30 40 30 Q30 70 0 80 Q-30 70 -40 30 Q-35 -30 0 -40Z" fill="#C62828" opacity="0.65"/>
+    <circle cx="-8" cy="8" r="2" fill="#F9A825" opacity="0.25"/>
+    <circle cx="12" cy="25" r="2" fill="#F9A825" opacity="0.25"/>
+    <path d="M-12 -40 L0 -50 L12 -40" fill="#388E3C" opacity="0.5"/>
+  </g>
+  <!-- Berry 4 - back left -->
+  <g transform="translate(330 280) scale(0.7)" opacity="0.5">
+    <path d="M0 -40 Q35 -30 40 30 Q30 70 0 80 Q-30 70 -40 30 Q-35 -30 0 -40Z" fill="#E53935"/>
+    <path d="M-10 -40 L0 -48 L10 -40" fill="#2E7D32" opacity="0.5"/>
+  </g>
+  <!-- Berry 5 - back right -->
+  <g transform="translate(450 275) scale(0.7)" opacity="0.5">
+    <path d="M0 -40 Q35 -30 40 30 Q30 70 0 80 Q-30 70 -40 30 Q-35 -30 0 -40Z" fill="#D32F2F"/>
+    <path d="M-10 -40 L0 -48 L10 -40" fill="#2E7D32" opacity="0.5"/>
+  </g>
+  <!-- Leaf accents -->
+  <ellipse cx="250" cy="220" rx="30" ry="10" transform="rotate(-20 250 220)" fill="#2E7D32" opacity="0.2"/>
+  <ellipse cx="550" cy="210" rx="25" ry="8" transform="rotate(25 550 210)" fill="#2E7D32" opacity="0.2"/>
+</svg>

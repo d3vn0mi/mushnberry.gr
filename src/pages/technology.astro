@@ -2,59 +2,77 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
+import AnimatedCounter from '../components/AnimatedCounter.astro';
 import { useTranslations } from '../i18n/utils';
 
 const t = useTranslations('el');
 ---
 
 <BaseLayout title={t('nav.technology')} description={t('tech.hero.subtitle')}>
-  <Hero title={t('tech.hero.title')} subtitle={t('tech.hero.subtitle')} variant="dark" />
+  <Hero title={t('tech.hero.title')} subtitle={t('tech.hero.subtitle')} variant="dark" image="hero-tech.svg" />
 
   <section class="section">
-    <div class="container content-block">
-      <h2>{t('tech.how.title')}</h2>
-      <p>{t('tech.how.desc')}</p>
+    <div class="container tech-two-col">
+      <div class="content-block reveal-left">
+        <h2>{t('tech.how.title')}</h2>
+        <p>{t('tech.how.desc')}</p>
+      </div>
+      <div class="tech-image reveal-right">
+        <img src="/images/ai-dashboard.svg" alt="AI Dashboard" loading="lazy" width="600" height="400" class="img-rounded" />
+      </div>
     </div>
   </section>
 
   <section class="section section-brown">
     <div class="container">
-      <div class="grid-3">
-        <Card
-          title={t('tech.sensors.title')}
-          description={t('tech.sensors.desc')}
-          icon="📡"
-        />
-        <Card
-          title={t('tech.climate.title')}
-          description={t('tech.climate.desc')}
-          icon="🌡️"
-        />
-        <Card
-          title={t('tech.data.title')}
-          description={t('tech.data.desc')}
-          icon="📊"
-        />
+      <div class="grid-3 stagger">
+        <div class="reveal">
+          <Card
+            title={t('tech.sensors.title')}
+            description={t('tech.sensors.desc')}
+            image="sensors.svg"
+          />
+        </div>
+        <div class="reveal">
+          <Card
+            title={t('tech.climate.title')}
+            description={t('tech.climate.desc')}
+            icon="🌡️"
+          />
+        </div>
+        <div class="reveal">
+          <Card
+            title={t('tech.data.title')}
+            description={t('tech.data.desc')}
+            icon="📊"
+          />
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <h2 class="text-center">{t('tech.benefits.title')}</h2>
-      <div class="grid-3 benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-number">+40%</div>
+      <h2 class="text-center reveal">{t('tech.benefits.title')}</h2>
+      <div class="grid-3 benefits-grid stagger">
+        <div class="benefit-item reveal">
+          <div class="benefit-number">
+            <AnimatedCounter target={40} prefix="+" suffix="%" />
+          </div>
           <h3>{t('tech.benefits.yield')}</h3>
           <p>{t('tech.benefits.yield.desc')}</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-number">-60%</div>
+        <div class="benefit-item reveal">
+          <div class="benefit-number">
+            <AnimatedCounter target={60} prefix="-" suffix="%" />
+          </div>
           <h3>{t('tech.benefits.waste')}</h3>
           <p>{t('tech.benefits.waste.desc')}</p>
         </div>
-        <div class="benefit-item">
-          <div class="benefit-number">365</div>
+        <div class="benefit-item reveal">
+          <div class="benefit-number">
+            <AnimatedCounter target={365} />
+          </div>
           <h3>{t('tech.benefits.quality')}</h3>
           <p>{t('tech.benefits.quality.desc')}</p>
         </div>
@@ -77,6 +95,25 @@ const t = useTranslations('el');
     line-height: 1.8;
     color: #444;
     font-size: 1.05rem;
+  }
+
+  .tech-two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .tech-two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .tech-image img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
   }
 
   .benefits-grid {

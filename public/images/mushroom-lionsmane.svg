@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#2C2C3E"/>
+    </linearGradient>
+    <radialGradient id="light" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#F9A825" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="tendril" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAFAFA"/>
+      <stop offset="100%" stop-color="#E0E0E0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#light)"/>
+  <!-- Lion's mane body - cascading tendrils -->
+  <g transform="translate(400 200)">
+    <!-- Main body mass -->
+    <ellipse cx="0" cy="30" rx="120" ry="80" fill="#F5F5F5" opacity="0.15"/>
+    <!-- Cascading tendril lines -->
+    <g stroke="url(#tendril)" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+      <path d="M-80 20 Q-85 80 -75 160 Q-70 200 -80 240"/>
+      <path d="M-60 10 Q-55 90 -60 170 Q-65 220 -55 270"/>
+      <path d="M-40 5 Q-35 70 -42 150 Q-48 210 -38 280"/>
+      <path d="M-20 0 Q-15 80 -22 165 Q-28 230 -18 300"/>
+      <path d="M0 -5 Q5 75 -2 160 Q-8 240 2 310"/>
+      <path d="M20 0 Q25 80 18 170 Q12 235 22 295"/>
+      <path d="M40 5 Q45 75 38 155 Q32 215 42 275"/>
+      <path d="M60 10 Q65 85 58 160 Q52 205 62 260"/>
+      <path d="M80 20 Q85 80 78 150 Q72 195 82 235"/>
+    </g>
+    <!-- Thinner secondary tendrils -->
+    <g stroke="#E8E8E8" stroke-width="1.5" fill="none" opacity="0.25" stroke-linecap="round">
+      <path d="M-70 30 Q-72 90 -68 170"/>
+      <path d="M-50 15 Q-48 85 -52 165"/>
+      <path d="M-30 8 Q-27 75 -32 155"/>
+      <path d="M-10 2 Q-7 70 -12 150"/>
+      <path d="M10 2 Q13 72 8 155"/>
+      <path d="M30 8 Q33 78 28 160"/>
+      <path d="M50 15 Q53 82 48 155"/>
+      <path d="M70 30 Q73 88 68 160"/>
+    </g>
+    <!-- Top body highlight -->
+    <ellipse cx="0" cy="10" rx="90" ry="40" fill="#FAFAFA" opacity="0.12"/>
+  </g>
+  <!-- Subtle background glow -->
+  <circle cx="400" cy="300" r="180" fill="#FAFAFA" opacity="0.03"/>
+  <!-- Ambient dots -->
+  <circle cx="150" cy="120" r="1.5" fill="#F9A825" opacity="0.15"/>
+  <circle cx="650" cy="100" r="2" fill="#F9A825" opacity="0.12"/>
+  <circle cx="100" cy="480" r="1.5" fill="#E0E0E0" opacity="0.1"/>
+</svg>
