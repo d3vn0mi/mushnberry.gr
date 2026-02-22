@@ -12,6 +12,7 @@ const navLinks = getNavLinks(lang);
 ---
 
 <footer class="site-footer">
+  <div class="footer-accent-line"></div>
   <div class="container footer-inner">
     <div class="footer-brand">
       <div class="footer-logo">
@@ -43,6 +44,11 @@ const navLinks = getNavLinks(lang);
 </footer>
 
 <style>
+  .footer-accent-line {
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-green));
+  }
+
   .site-footer {
     background-color: var(--color-dark);
     color: var(--color-text);

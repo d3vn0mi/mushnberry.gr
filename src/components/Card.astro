@@ -4,41 +4,90 @@ export interface Props {
   description: string;
   icon?: string;
   href?: string;
+  image?: string;
+  variant?: 'default' | 'glass';
 }
 
-const { title, description, icon, href } = Astro.props;
+const { title, description, icon, href, image, variant = 'default' } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
 
-<Tag class="card" href={href}>
-  {icon && <span class="card-icon">{icon}</span>}
-  <h3 class="card-title">{title}</h3>
-  <p class="card-desc">{description}</p>
-  <slot />
+<Tag class:list={['card', `card-${variant}`]} href={href}>
+  {image && (
+    <div class="card-image-wrap">
+      <img
+        src={`/images/${image}`}
+        alt={title}
+        class="card-image"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+    </div>
+  )}
+  {icon && !image && <span class="card-icon">{icon}</span>}
+  <div class="card-body">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+    <slot />
+  </div>
 </Tag>
 
 <style>
   .card {
     background: white;
     border-radius: var(--radius-lg);
-    padding: 2rem;
+    overflow: hidden;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: var(--color-text-dark);
-    display: block;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid transparent;
   }
 
   a.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    border-bottom-color: var(--color-primary);
+  }
+
+  div.card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    text-decoration: none;
+  }
+
+  .card-image-wrap {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.5rem 2rem 2rem;
   }
 
   .card-icon {
     display: block;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    padding: 2rem 2rem 0;
+    margin-bottom: 0;
+  }
+
+  .card-icon + .card-body {
+    padding-top: 0.75rem;
   }
 
   .card-title {
@@ -51,5 +100,27 @@ const Tag = href ? 'a' : 'div';
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
+  }
+
+  /* Glass morphism variant */
+  .card-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--color-text);
+  }
+
+  .card-glass .card-title {
+    color: var(--color-accent);
+  }
+
+  .card-glass .card-desc {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .card-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 </style>

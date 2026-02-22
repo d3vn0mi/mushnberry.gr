@@ -1,0 +1,67 @@
+---
+export interface Props {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  duration?: number;
+}
+
+const { target, prefix = '', suffix = '', duration = 2000 } = Astro.props;
+---
+
+<span
+  class="animated-counter"
+  data-target={target}
+  data-prefix={prefix}
+  data-suffix={suffix}
+  data-duration={duration}
+>
+  {prefix}0{suffix}
+</span>
+
+<script>
+  function initCounters() {
+    const counters = document.querySelectorAll('.animated-counter');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target || '0', 10);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const duration = parseInt(el.dataset.duration || '2000', 10);
+          const startTime = performance.now();
+
+          function easeOutCubic(t: number): number {
+            return 1 - Math.pow(1 - t, 3);
+          }
+
+          function update(currentTime: number) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutCubic(progress);
+            const currentValue = Math.round(easedProgress * target);
+
+            el.textContent = `${prefix}${currentValue}${suffix}`;
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+
+          requestAnimationFrame(update);
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
+
+  initCounters();
+  document.addEventListener('astro:after-swap', initCounters);
+</script>

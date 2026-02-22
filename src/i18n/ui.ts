@@ -109,6 +109,25 @@ export const ui = {
     'footer.rights': '© 2026 Mushnberry. Με επιφύλαξη κάθε δικαιώματος.',
     'footer.tagline': 'Καλλιεργούμε με τεχνολογία, σερβίρουμε με αγάπη.',
 
+    // Contact form - enhanced
+    'contact.form.success': 'Ευχαριστούμε!',
+    'contact.form.successMessage': 'Το μήνυμά σας εστάλη επιτυχώς. Θα επικοινωνήσουμε μαζί σας σύντομα.',
+    'contact.form.errorMessage': 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.',
+    'contact.form.retry': 'Δοκιμάστε Ξανά',
+    'contact.form.nameError': 'Παρακαλώ εισάγετε το ονοματεπώνυμό σας (τουλάχιστον 2 χαρακτήρες).',
+    'contact.form.emailError': 'Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.',
+    'contact.form.messageError': 'Παρακαλώ γράψτε το μήνυμά σας (τουλάχιστον 10 χαρακτήρες).',
+
+    // Technology page - counter labels
+    'tech.stats.title': 'Mushnberry σε Αριθμούς',
+    'tech.stats.sensors': 'Αισθητήρες IoT',
+    'tech.stats.area': 'τ.μ. Καλλιέργειας',
+    'tech.stats.waterSaved': 'Εξοικονόμηση Νερού',
+
+    // Home page - CTA section
+    'home.cta.title': 'Έτοιμοι να Δοκιμάσετε;',
+    'home.cta.subtitle': 'Ανακαλύψτε τη γεύση της τεχνολογίας.',
+
     // Common
     'common.learnMore': 'Μάθετε Περισσότερα',
     'common.contactUs': 'Επικοινωνήστε Μαζί Μας',
@@ -215,6 +234,25 @@ export const ui = {
     // Footer
     'footer.rights': '© 2026 Mushnberry. All rights reserved.',
     'footer.tagline': 'Grown with technology, served with love.',
+
+    // Contact form - enhanced
+    'contact.form.success': 'Thank You!',
+    'contact.form.successMessage': 'Your message has been sent successfully. We will get back to you soon.',
+    'contact.form.errorMessage': 'Something went wrong. Please try again.',
+    'contact.form.retry': 'Try Again',
+    'contact.form.nameError': 'Please enter your name (at least 2 characters).',
+    'contact.form.emailError': 'Please enter a valid email address.',
+    'contact.form.messageError': 'Please write your message (at least 10 characters).',
+
+    // Technology page - counter labels
+    'tech.stats.title': 'Mushnberry in Numbers',
+    'tech.stats.sensors': 'IoT Sensors',
+    'tech.stats.area': 'sq.m. Growing Area',
+    'tech.stats.waterSaved': 'Water Savings',
+
+    // Home page - CTA section
+    'home.cta.title': 'Ready to Try?',
+    'home.cta.subtitle': 'Discover the taste of technology.',
 
     // Common
     'common.learnMore': 'Learn More',

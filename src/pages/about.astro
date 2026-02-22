@@ -8,18 +8,23 @@ const t = useTranslations('el');
 ---
 
 <BaseLayout title={t('nav.about')} description={t('about.hero.subtitle')}>
-  <Hero title={t('about.hero.title')} subtitle={t('about.hero.subtitle')} variant="brown" />
+  <Hero title={t('about.hero.title')} subtitle={t('about.hero.subtitle')} variant="brown" image="hero-about.svg" />
 
   <section class="section">
-    <div class="container content-block">
-      <h2>{t('about.story.title')}</h2>
-      <p>{t('about.story.p1')}</p>
-      <p>{t('about.story.p2')}</p>
+    <div class="container about-two-col">
+      <div class="content-block reveal-left">
+        <h2>{t('about.story.title')}</h2>
+        <p>{t('about.story.p1')}</p>
+        <p>{t('about.story.p2')}</p>
+      </div>
+      <div class="about-image reveal-right">
+        <img src="/images/team.svg" alt="Mushnberry team" loading="lazy" width="600" height="400" class="img-rounded" />
+      </div>
     </div>
   </section>
 
   <section class="section section-primary">
-    <div class="container text-center">
+    <div class="container text-center reveal">
       <h2>{t('about.mission.title')}</h2>
       <p class="mission-text">{t('about.mission.desc')}</p>
     </div>
@@ -27,31 +32,42 @@ const t = useTranslations('el');
 
   <section class="section">
     <div class="container">
-      <h2 class="text-center">{t('about.values.title')}</h2>
-      <div class="grid-3 values-grid">
-        <Card
-          title={t('about.values.quality')}
-          description={t('about.values.quality.desc')}
-          icon="✓"
-        />
-        <Card
-          title={t('about.values.sustainability')}
-          description={t('about.values.sustainability.desc')}
-          icon="♻"
-        />
-        <Card
-          title={t('about.values.innovation')}
-          description={t('about.values.innovation.desc')}
-          icon="⚡"
-        />
+      <h2 class="text-center reveal">{t('about.values.title')}</h2>
+      <div class="grid-3 values-grid stagger">
+        <div class="reveal">
+          <Card
+            title={t('about.values.quality')}
+            description={t('about.values.quality.desc')}
+            icon="✓"
+          />
+        </div>
+        <div class="reveal">
+          <Card
+            title={t('about.values.sustainability')}
+            description={t('about.values.sustainability.desc')}
+            icon="♻"
+          />
+        </div>
+        <div class="reveal">
+          <Card
+            title={t('about.values.innovation')}
+            description={t('about.values.innovation.desc')}
+            icon="⚡"
+          />
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section section-dark">
-    <div class="container content-block">
-      <h2>{t('about.facility.title')}</h2>
-      <p>{t('about.facility.desc')}</p>
+    <div class="container about-two-col">
+      <div class="about-image reveal-left">
+        <img src="/images/facility.svg" alt="Mushnberry facility" loading="lazy" width="600" height="400" class="img-rounded" />
+      </div>
+      <div class="content-block reveal-right">
+        <h2>{t('about.facility.title')}</h2>
+        <p>{t('about.facility.desc')}</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -90,5 +106,25 @@ const t = useTranslations('el');
 
   .values-grid {
     margin-top: 2rem;
+  }
+
+  .about-two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: none;
+  }
+
+  @media (min-width: 768px) {
+    .about-two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
   }
 </style>

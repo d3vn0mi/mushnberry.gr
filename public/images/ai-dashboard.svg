@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D0D15"/>
+      <stop offset="100%" stop-color="#1A1A2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Dashboard frame -->
+  <rect x="40" y="30" width="720" height="540" rx="12" fill="none" stroke="#263238" stroke-width="1.5" opacity="0.4"/>
+  <!-- Top bar -->
+  <rect x="40" y="30" width="720" height="40" rx="12" fill="#263238" opacity="0.3"/>
+  <circle cx="70" cy="50" r="6" fill="#C2185B" opacity="0.4"/>
+  <circle cx="90" cy="50" r="6" fill="#F9A825" opacity="0.4"/>
+  <circle cx="110" cy="50" r="6" fill="#2E7D32" opacity="0.4"/>
+  <!-- Sidebar -->
+  <rect x="40" y="70" width="140" height="500" fill="#1A1A2E" opacity="0.5"/>
+  <g opacity="0.2">
+    <rect x="60" y="95" width="100" height="8" rx="4" fill="#546E7A"/>
+    <rect x="60" y="125" width="80" height="8" rx="4" fill="#546E7A"/>
+    <rect x="60" y="155" width="90" height="8" rx="4" fill="#F9A825"/>
+    <rect x="60" y="185" width="70" height="8" rx="4" fill="#546E7A"/>
+    <rect x="60" y="215" width="85" height="8" rx="4" fill="#546E7A"/>
+  </g>
+  <!-- Main content area -->
+  <!-- Line chart -->
+  <g transform="translate(210 95)">
+    <rect width="240" height="160" rx="8" fill="#263238" opacity="0.3"/>
+    <!-- Chart grid -->
+    <g stroke="#455A64" stroke-width="0.5" opacity="0.2">
+      <line x1="30" y1="30" x2="30" y2="140"/><line x1="30" y1="140" x2="220" y2="140"/>
+      <line x1="30" y1="85" x2="220" y2="85" stroke-dasharray="3 3"/>
+      <line x1="30" y1="57" x2="220" y2="57" stroke-dasharray="3 3"/>
+    </g>
+    <!-- Line data -->
+    <polyline points="35,120 65,100 95,110 125,80 155,65 185,45 215,55" fill="none" stroke="#C2185B" stroke-width="2" opacity="0.6"/>
+    <polyline points="35,130 65,115 95,120 125,100 155,90 185,75 215,80" fill="none" stroke="#2E7D32" stroke-width="2" opacity="0.5"/>
+    <!-- Title bar -->
+    <rect x="10" y="8" width="80" height="6" rx="3" fill="#546E7A" opacity="0.3"/>
+  </g>
+  <!-- Bar chart -->
+  <g transform="translate(480 95)">
+    <rect width="250" height="160" rx="8" fill="#263238" opacity="0.3"/>
+    <rect x="10" y="8" width="70" height="6" rx="3" fill="#546E7A" opacity="0.3"/>
+    <!-- Bars -->
+    <g opacity="0.5">
+      <rect x="35" y="60" width="20" height="80" rx="3" fill="#C2185B"/>
+      <rect x="65" y="45" width="20" height="95" rx="3" fill="#F9A825"/>
+      <rect x="95" y="70" width="20" height="70" rx="3" fill="#2E7D32"/>
+      <rect x="125" y="35" width="20" height="105" rx="3" fill="#C2185B"/>
+      <rect x="155" y="55" width="20" height="85" rx="3" fill="#F9A825"/>
+      <rect x="185" y="40" width="20" height="100" rx="3" fill="#2E7D32"/>
+      <rect x="215" y="50" width="20" height="90" rx="3" fill="#C2185B"/>
+    </g>
+    <line x1="30" y1="140" x2="240" y2="140" stroke="#455A64" stroke-width="0.5" opacity="0.2"/>
+  </g>
+  <!-- Pie/donut chart -->
+  <g transform="translate(210 290)">
+    <rect width="240" height="180" rx="8" fill="#263238" opacity="0.3"/>
+    <rect x="10" y="8" width="90" height="6" rx="3" fill="#546E7A" opacity="0.3"/>
+    <!-- Donut -->
+    <g transform="translate(120 105)">
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#C2185B" stroke-width="16" stroke-dasharray="120 226" opacity="0.5" transform="rotate(-90)"/>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#F9A825" stroke-width="16" stroke-dasharray="80 266" stroke-dashoffset="-120" opacity="0.5" transform="rotate(-90)"/>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#2E7D32" stroke-width="16" stroke-dasharray="60 286" stroke-dashoffset="-200" opacity="0.5" transform="rotate(-90)"/>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#5D4037" stroke-width="16" stroke-dasharray="86 260" stroke-dashoffset="-260" opacity="0.5" transform="rotate(-90)"/>
+      <circle cx="0" cy="0" r="35" fill="#1A1A2E" opacity="0.8"/>
+    </g>
+  </g>
+  <!-- Metrics cards -->
+  <g transform="translate(480 290)">
+    <rect width="250" height="80" rx="8" fill="#263238" opacity="0.3"/>
+    <rect x="15" y="15" width="60" height="6" rx="3" fill="#546E7A" opacity="0.3"/>
+    <rect x="15" y="35" width="100" height="14" rx="4" fill="#2E7D32" opacity="0.25"/>
+    <rect x="15" y="58" width="160" height="4" rx="2" fill="#2E7D32" opacity="0.15"/>
+    <rect x="15" y="58" width="120" height="4" rx="2" fill="#2E7D32" opacity="0.3"/>
+  </g>
+  <g transform="translate(480 390)">
+    <rect width="250" height="80" rx="8" fill="#263238" opacity="0.3"/>
+    <rect x="15" y="15" width="50" height="6" rx="3" fill="#546E7A" opacity="0.3"/>
+    <rect x="15" y="35" width="80" height="14" rx="4" fill="#F9A825" opacity="0.25"/>
+    <rect x="15" y="58" width="160" height="4" rx="2" fill="#F9A825" opacity="0.15"/>
+    <rect x="15" y="58" width="140" height="4" rx="2" fill="#F9A825" opacity="0.3"/>
+  </g>
+  <!-- Status indicator -->
+  <circle cx="720" cy="50" r="5" fill="#2E7D32" opacity="0.5"/>
+</svg>
